@@ -28,17 +28,17 @@ namespace ProjectMars_Specflow.Tests
         [Test]
         public void AddLanguage_Test()
         {
-            languagePageObj.Add_Language();
+            languagePageObj.Add_Language("French", "Fluent");
         }
         [Test]
         public void UpdateLanguage_Test()
         {
-            languagePageObj.Update_Language();
+            languagePageObj.Update_Language("Spanish", "Basic");
         }
         [Test]
         public void DeleteLanguage_Test()
         {
-            languagePageObj.Delete_Language();
+            languagePageObj.Delete_Language("Spanish", "Basic");
         }
         [TearDown]
         public void TearDown()
