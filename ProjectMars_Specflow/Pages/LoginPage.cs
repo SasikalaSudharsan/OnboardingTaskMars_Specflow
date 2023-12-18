@@ -12,14 +12,13 @@ namespace ProjectMars_Specflow.Pages
     {
         public void LoginActions()
         {
-            driver.Manage().Window.Maximize();
-
-            driver.Navigate().GoToUrl("http://localhost:5000/Home");
 
             IWebElement signInButton = driver.FindElement(By.XPath("//div[@id='home']/div/div/div/div/a"));
             signInButton.Click();
 
-            Thread.Sleep(4000);
+            //Thread.Sleep(4000);
+
+            Wait.WaitToExist("XPath", "//input[@name='email']", 4);
 
             IWebElement usernameTextbox = driver.FindElement(By.XPath("//input[@name='email']"));
             usernameTextbox.SendKeys("sasi.ei34@gmail.com");

@@ -25,7 +25,7 @@ Examples:
 
 Scenario Outline: Delete an existing language
     Given User logged into Mars URL successfully
-	When User delete the '<Language>' and '<Language Level>' of an existing language
+	When User delete the '<Language>' of an existing language
 	And The '<Language>' should be deleted successfully
 
 Examples: 

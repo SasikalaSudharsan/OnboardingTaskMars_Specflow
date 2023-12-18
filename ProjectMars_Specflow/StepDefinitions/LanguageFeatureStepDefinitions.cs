@@ -16,9 +16,6 @@ namespace ProjectMars_Specflow.StepDefinitions
         [Given(@"User logged into Mars URL successfully")]
         public void GivenUserLoggedIntoMarsURLSuccessfully()
         {
-            //Open chrome browser
-            driver = new ChromeDriver();
-
             //Login page object initialization and definition
             loginPageObj.LoginActions();
         }
@@ -56,10 +53,10 @@ namespace ProjectMars_Specflow.StepDefinitions
             Assert.That(updatedLanguageLevel == languageLevel, "Updated language level and expected language level do not match");
         }
 
-        [When(@"User delete the '([^']*)' and '([^']*)' of an existing language")]
-        public void WhenUserDeleteTheAndOfAnExistingLanguage(string language, string languageLevel)
+        [When(@"User delete the '([^']*)' of an existing language")]
+        public void WhenUserDeleteTheOfAnExistingLanguage(string language)
         {
-            languagePageObj.Delete_Language(language, languageLevel);
+            languagePageObj.Delete_Language(language);
         }
 
         [When(@"The '([^']*)' should be deleted successfully")]
