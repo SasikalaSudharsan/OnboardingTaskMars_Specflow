@@ -67,5 +67,29 @@ namespace ProjectMars_Specflow.StepDefinitions
             Assert.That(deletedLanguage != language, "Expected language has not been deleted");
         }
 
+        [When(@"The special characters '([^']*)' should not be added")]
+        public void WhenTheSpecialCharactersShouldNotBeAdded(string language)
+        {
+            string updatedLanguage = languagePageObj.getUpdatedLanguage();
+
+            Assert.That(updatedLanguage != language, "Special characters has not been added in the language list");
+        }
+
+        [When(@"The Empty '([^']*)' should not be added")]
+        public void WhenTheEmptyShouldNotBeAdded(string language)
+        {
+            string updatedLanguage = languagePageObj.getUpdatedLanguage();
+
+            Assert.That(updatedLanguage != language, "Empty language has not been added");
+        }
+
+        [When(@"The existing language '([^']*)' should not be added in the language list")]
+        public void WhenTheExistingLanguageShouldNotBeAddedInTheLanguageList(string language)
+        {
+            string updatedLanguage = languagePageObj.getUpdatedLanguage();
+
+            Assert.That(updatedLanguage != language, "Existing language has not been added");
+        }
+
     }
 }

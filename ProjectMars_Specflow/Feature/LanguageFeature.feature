@@ -31,3 +31,30 @@ Scenario Outline: Delete an existing language
 Examples: 
  | Language  | 
  | Spanish   | 
+
+ Scenario Outline: Add language with special characters
+Given User logged into Mars URL successfully
+When User add '<Language>' and '<Language Level>' to the language list
+And The special characters '<Language>' should not be added
+
+Examples: 
+ | Language | Language Level |
+ | @#$%^&   | Fluent         |
+
+ Scenario Outline: Add language with language textbox as empty
+Given User logged into Mars URL successfully
+When User add '<Language>' and '<Language Level>' to the language list
+And The Empty '<Language>' should not be added 
+
+Examples: 
+ | Language | Language Level  |
+ |          | Fluent          |
+
+  Scenario Outline: Add existing language in language list
+Given User logged into Mars URL successfully
+When User add '<Language>' and '<Language Level>' to the language list
+And The existing language '<Language>' should not be added in the language list
+
+Examples: 
+ | Language | Language Level  |
+ | Spanish  | Basic           |
