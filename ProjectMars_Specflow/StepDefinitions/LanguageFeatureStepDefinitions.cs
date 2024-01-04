@@ -29,32 +29,33 @@ namespace ProjectMars_Specflow.StepDefinitions
         [When(@"The '([^']*)' and '([^']*)' should be added successfully")]
         public void WhenTheAndShouldBeAddedSuccessfully(string language, string languageLevel)
         {
-            string newLanguage = languagePageObj.getLanguage();
-            string newLanguageLevel = languagePageObj.getLanguageLevel();
+            string newLanguage = languagePageObj.getLanguage(language);
+            string newLanguageLevel = languagePageObj.getLanguageLevel(languageLevel);
 
             Assert.That(newLanguage == language, "Actual language and expected language do not match");
             Assert.That(newLanguageLevel == languageLevel, "Actual language level and expected language level  do not match");
         }
 
-
-        [When(@"User update the '([^']*)' and '([^']*)' of an existing language")]
-        public void WhenUserUpdateTheAndOfAnExistingLanguage(string language, string languageLevel)
+        [When(@"User edit an existing '([^']*)' and '([^']*)'")]
+        public void WhenUserEditAnExistingAnd(string existingLanguage, string existingLanguageLevel)
         {
-            languagePageObj.Update_Language(language, languageLevel);
+            languagePageObj.Edit_Language(existingLanguage, existingLanguageLevel);
         }
 
         [When(@"The '([^']*)' and '([^']*)' should be updated successfully")]
         public void WhenTheAndShouldBeUpdatedSuccessfully(string language, string languageLevel)
         {
-            string updatedLanguage = languagePageObj.getUpdatedLanguage();
-            string updatedLanguageLevel = languagePageObj.getUpdatedLanguageLevel();
+            languagePageObj.Update_Language(language, languageLevel);
+
+            string updatedLanguage = languagePageObj.getLanguage(language);
+            string updatedLanguageLevel = languagePageObj.getLanguageLevel(languageLevel);
 
             Assert.That(updatedLanguage == language, "Updated language and expected language do not match");
             Assert.That(updatedLanguageLevel == languageLevel, "Updated language level and expected language level do not match");
         }
 
-        [When(@"User delete the '([^']*)' of an existing language")]
-        public void WhenUserDeleteTheOfAnExistingLanguage(string language)
+        [When(@"User delete an existing '([^']*)'")]
+        public void WhenUserDeleteAnExisting(string language)
         {
             languagePageObj.Delete_Language(language);
         }
@@ -62,34 +63,17 @@ namespace ProjectMars_Specflow.StepDefinitions
         [When(@"The '([^']*)' should be deleted successfully")]
         public void WhenTheShouldBeDeletedSuccessfully(string language)
         {
-            string deletedLanguage = languagePageObj.getDeletedLanguage();
+            string deletedLanguage = languagePageObj.getLanguage(language);
 
-            Assert.That(deletedLanguage != language, "Expected language has not been deleted");
+            Assert.That(deletedLanguage == null, "Expected language has not been deleted");
         }
 
-        [When(@"The special characters '([^']*)' should not be added")]
-        public void WhenTheSpecialCharactersShouldNotBeAdded(string language)
+        [When(@"The message '([^']*)' should be displayed")]
+        public void WhenTheMessageShouldBeDisplayed(string expectedMessage)
         {
-            string updatedLanguage = languagePageObj.getUpdatedLanguage();
+            string actualMessage = languagePageObj.getMessage();
 
-            Assert.That(updatedLanguage != language, "Special characters has not been added in the language list");
+            Assert.That(actualMessage == expectedMessage, "Actual message and expected message do not match");
         }
-
-        [When(@"The Empty '([^']*)' should not be added")]
-        public void WhenTheEmptyShouldNotBeAdded(string language)
-        {
-            string updatedLanguage = languagePageObj.getUpdatedLanguage();
-
-            Assert.That(updatedLanguage != language, "Empty language has not been added");
-        }
-
-        [When(@"The existing language '([^']*)' should not be added in the language list")]
-        public void WhenTheExistingLanguageShouldNotBeAddedInTheLanguageList(string language)
-        {
-            string updatedLanguage = languagePageObj.getUpdatedLanguage();
-
-            Assert.That(updatedLanguage != language, "Existing language has not been added");
-        }
-
     }
 }

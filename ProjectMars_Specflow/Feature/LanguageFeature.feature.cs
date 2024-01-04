@@ -116,13 +116,15 @@ testRunner.And(string.Format("The \'{0}\' and \'{1}\' should be added successful
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Update an existing language")]
-        [NUnit.Framework.TestCaseAttribute("Spanish", "Basic", null)]
-        public void UpdateAnExistingLanguage(string language, string languageLevel, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("French", "Fluent", "Spanish", "Basic", null)]
+        public void UpdateAnExistingLanguage(string existingLanguage, string existingLanguageLevel, string newLanguage, string newLanguageLevel, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("Language", language);
-            argumentsOfScenario.Add("Language Level", languageLevel);
+            argumentsOfScenario.Add("Existing Language", existingLanguage);
+            argumentsOfScenario.Add("Existing Language Level", existingLanguageLevel);
+            argumentsOfScenario.Add("New Language", newLanguage);
+            argumentsOfScenario.Add("New Language Level", newLanguageLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Update an existing language", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 17
 this.ScenarioInitialize(scenarioInfo);
@@ -138,10 +140,10 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 19
- testRunner.When(string.Format("User update the \'{0}\' and \'{1}\' of an existing language", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("User edit an existing \'{0}\' and \'{1}\'", existingLanguage, existingLanguageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
- testRunner.And(string.Format("The \'{0}\' and \'{1}\' should be updated successfully", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The \'{0}\' and \'{1}\' should be updated successfully", newLanguage, newLanguageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -170,7 +172,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 28
- testRunner.When(string.Format("User delete the \'{0}\' of an existing language", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("User delete an existing \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
  testRunner.And(string.Format("The \'{0}\' should be deleted successfully", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -181,13 +183,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add language with special characters")]
-        [NUnit.Framework.TestCaseAttribute("@#$%^&", "Fluent", null)]
-        public void AddLanguageWithSpecialCharacters(string language, string languageLevel, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("@#$%^&", "Fluent", "Special charcters are not allowed in your language list", null)]
+        public void AddLanguageWithSpecialCharacters(string language, string languageLevel, string message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Language Level", languageLevel);
+            argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add language with special characters", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 35
  this.ScenarioInitialize(scenarioInfo);
@@ -206,7 +209,7 @@ testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((T
 testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the language list", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 38
-testRunner.And(string.Format("The special characters \'{0}\' should not be added", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And(string.Format("The message \'{0}\' should be displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -214,13 +217,14 @@ testRunner.And(string.Format("The special characters \'{0}\' should not be added
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add language with language textbox as empty")]
-        [NUnit.Framework.TestCaseAttribute("", "Fluent", null)]
-        public void AddLanguageWithLanguageTextboxAsEmpty(string language, string languageLevel, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("", "Fluent", "Please enter language and level", null)]
+        public void AddLanguageWithLanguageTextboxAsEmpty(string language, string languageLevel, string message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Language Level", languageLevel);
+            argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add language with language textbox as empty", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 44
  this.ScenarioInitialize(scenarioInfo);
@@ -239,7 +243,7 @@ testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((T
 testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the language list", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 47
-testRunner.And(string.Format("The Empty \'{0}\' should not be added", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And(string.Format("The message \'{0}\' should be displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -247,13 +251,14 @@ testRunner.And(string.Format("The Empty \'{0}\' should not be added", language),
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add existing language in language list")]
-        [NUnit.Framework.TestCaseAttribute("Spanish", "Basic", null)]
-        public void AddExistingLanguageInLanguageList(string language, string languageLevel, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("Spanish", "Basic", "This language is already exist in your language list.", null)]
+        public void AddExistingLanguageInLanguageList(string language, string languageLevel, string message, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             argumentsOfScenario.Add("Language Level", languageLevel);
+            argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add existing language in language list", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 53
   this.ScenarioInitialize(scenarioInfo);
@@ -272,7 +277,7 @@ testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((T
 testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the language list", language, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 56
-testRunner.And(string.Format("The existing language \'{0}\' should not be added in the language list", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.And(string.Format("The message \'{0}\' should be displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
