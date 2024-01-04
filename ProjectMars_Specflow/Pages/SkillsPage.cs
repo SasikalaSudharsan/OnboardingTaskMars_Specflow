@@ -14,18 +14,18 @@ namespace ProjectMars_Specflow.Pages
         public void Add_Skills(string skill, string skillLevel)
         {
             Thread.Sleep(2000);
-
+            //Click Add new button
             IWebElement addNewButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div"));
             addNewButton.Click();
-
+            //Enter the skill that needs to be added
             IWebElement addSkill = driver.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
             addSkill.SendKeys(skill);
-
+            //Choose the skill level
             IWebElement skillLevelDropdown = driver.FindElement(By.XPath("//select[@name='level']"));
 
             SelectElement chooseSkillLevel = new SelectElement(skillLevelDropdown);
             chooseSkillLevel.SelectByValue(skillLevel);
-
+            //Click add button
             IWebElement addButton = driver.FindElement(By.XPath("//input[@value='Add']"));
             addButton.Click();
 
@@ -37,104 +37,76 @@ namespace ProjectMars_Specflow.Pages
             Console.WriteLine(actualMessage);
         }
 
-        public string getSkill()
+        public string getSkill(string skill)
         {
             Thread.Sleep(2000);
 
-            IWebElement newSkill = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
+            IWebElement newSkill = driver.FindElement(By.XPath($"//div[@class='twelve wide column scrollTable']//td[text()='{skill}']"));
             return newSkill.Text;
         }
 
-        public string getSkillLevel()
+        public string getSkillLevel(string skillLevel)
         {
             Thread.Sleep(2000);
 
-            IWebElement newLanguageLevel = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
+            IWebElement newLanguageLevel = driver.FindElement(By.XPath($"//div[@class='twelve wide column scrollTable']//td[text()='{skillLevel}']"));
             return newLanguageLevel.Text;
+        }
+
+        public void Edit_Skills(string existingSkill, string existingSkillLevel)
+        {
+            Thread.Sleep(4000);
+
+            //Click the edit icon that needs to be updated
+            IWebElement editButton = driver.FindElement(By.XPath($"//div[@class='twelve wide column scrollTable']//td[text()='{existingSkill}']/following-sibling::td[last()]/span[1]"));
+            editButton.Click();
         }
 
         public void Update_Skills(string skill, string skillLevel)
         {
             Thread.Sleep(2000);
+            //Clear and enter the skill that needs to be updated
+            IWebElement updateSkill = driver.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
+            updateSkill.Clear();
+            updateSkill.SendKeys(skill);
 
-            IWebElement newSkill = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-
-            if (newSkill.Text == "Specflow")
-            {
-                IWebElement updateButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[1]/i"));
-                updateButton.Click();
-
-                IWebElement updateSkill = driver.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
-                updateSkill.Clear();
-                updateSkill.SendKeys(skill);
-
-                IWebElement updateSkillLevelDropdown = driver.FindElement(By.XPath("//select[@name='level']"));
-
-                SelectElement updateSkillLevel = new SelectElement(updateSkillLevelDropdown);
-                updateSkillLevel.SelectByValue(skillLevel);
-
-                IWebElement updateNewButton = driver.FindElement(By.XPath("//input[@value='Update']"));
-                updateNewButton.Click();
-
-                Thread.Sleep(4000);
-                //Get the text of the updated skill message 
-                IWebElement successMessage = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-                string actualMessage = successMessage.Text;
-
-                Console.WriteLine(actualMessage);
-            }
-            else
-            {
-                Console.WriteLine("Skill to be updated hasn't been found");
-            }
-        }
-
-        public string getUpdatedSkill()
-        {
-            Thread.Sleep(2000);
-
-            IWebElement updatedSkill = driver.FindElement(By.XPath("\r\n//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-            return updatedSkill.Text;
-        }
-
-        public string getUpdatedSkillLevel()
-        {
-            Thread.Sleep(2000);
-
-            IWebElement updatedSkillLevel = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
-            return updatedSkillLevel.Text;
+            IWebElement updateSkillLevelDropdown = driver.FindElement(By.XPath("//select[@name='level']"));
+            //Choose the skill level
+            SelectElement updateSkillLevel = new SelectElement(updateSkillLevelDropdown);
+            updateSkillLevel.SelectByValue(skillLevel);
+            //Click the update button
+            IWebElement updateNewButton = driver.FindElement(By.XPath("//input[@value='Update']"));
+            updateNewButton.Click();
         }
 
         public void Delete_Skills(string skill)
         {
             Thread.Sleep(4000);
-
-            IWebElement updatedSkill = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-
-            if(updatedSkill.Text == skill)
-            {
-                IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[2]"));
-                deleteButton.Click();
-            }
-            else
-            {
-                Console.WriteLine("Skill to be deleted hasn't been found");
-            }
+            //Click the delete button that needs to be deleted
+            IWebElement deleteButton = driver.FindElement(By.XPath($"//div[@class='twelve wide column scrollTable']//td[text()='{skill}']/following-sibling::td[last()]/span[2]"));
+            deleteButton.Click();
         }
 
-        public string getDeletedSkill()
+        public string getDeletedSkill(string skill)
         {
             Thread.Sleep(2000);
 
-            IWebElement deletedSkill = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
-            return deletedSkill.Text;
+            try
+            {
+                IWebElement deletedSkill = driver.FindElement(By.XPath($"//div[@class='twelve wide column scrollTable']//td[text()='{skill}']"));
+                return deletedSkill.Text;
+            }
+            catch(NoSuchElementException)
+            {
+                return null;
+            }
+        }
 
-            Thread.Sleep(4000);
-            //Get the text of the deleted skill message 
+        public string getMessage()
+        {
+            //Get the text message after entering language and language level
             IWebElement successMessage = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
-            string actualMessage = successMessage.Text;
-
-            Console.WriteLine(actualMessage);
+            return successMessage.Text;
         }
     }
 }

@@ -26,8 +26,8 @@ namespace ProjectMars_Specflow.StepDefinitions
             languagePageObj.Add_Language(language, languageLevel);
         }
 
-        [When(@"The '([^']*)' and '([^']*)' should be added successfully")]
-        public void WhenTheAndShouldBeAddedSuccessfully(string language, string languageLevel)
+        [Then(@"The '([^']*)' and '([^']*)' should be added successfully")]
+        public void ThenTheAndShouldBeAddedSuccessfully(string language, string languageLevel)
         {
             string newLanguage = languagePageObj.getLanguage(language);
             string newLanguageLevel = languagePageObj.getLanguageLevel(languageLevel);
@@ -42,8 +42,8 @@ namespace ProjectMars_Specflow.StepDefinitions
             languagePageObj.Edit_Language(existingLanguage, existingLanguageLevel);
         }
 
-        [When(@"The '([^']*)' and '([^']*)' should be updated successfully")]
-        public void WhenTheAndShouldBeUpdatedSuccessfully(string language, string languageLevel)
+        [Then(@"The '([^']*)' and '([^']*)' should be updated successfully")]
+        public void ThenTheAndShouldBeUpdatedSuccessfully(string language, string languageLevel)
         {
             languagePageObj.Update_Language(language, languageLevel);
 
@@ -60,16 +60,16 @@ namespace ProjectMars_Specflow.StepDefinitions
             languagePageObj.Delete_Language(language);
         }
 
-        [When(@"The '([^']*)' should be deleted successfully")]
-        public void WhenTheShouldBeDeletedSuccessfully(string language)
+        [Then(@"The '([^']*)' should be deleted successfully")]
+        public void ThenTheShouldBeDeletedSuccessfully(string language)
         {
-            string deletedLanguage = languagePageObj.getLanguage(language);
+            string deletedLanguage = languagePageObj.getDeletedLanguage(language);
 
             Assert.That(deletedLanguage == null, "Expected language has not been deleted");
         }
 
-        [When(@"The message '([^']*)' should be displayed")]
-        public void WhenTheMessageShouldBeDisplayed(string expectedMessage)
+        [Then(@"The message '([^']*)' should be displayed")]
+        public void ThenTheMessageShouldBeDisplayed(string expectedMessage)
         {
             string actualMessage = languagePageObj.getMessage();
 

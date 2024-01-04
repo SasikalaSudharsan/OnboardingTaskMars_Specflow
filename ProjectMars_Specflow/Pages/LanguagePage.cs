@@ -11,9 +11,7 @@ using ProjectMars_Specflow.Utilities;
 namespace ProjectMars_Specflow.Pages
 {
     public class LanguagePage : CommonDriver
-    {
-        //private IWebElement addLanguageTextbox = driver.FindElement(By.XPath("//input[@name='name']"));
-
+    {        
         public void Add_Language(string language, string languageLevel)
         {
             Thread.Sleep(6000);
@@ -44,16 +42,11 @@ namespace ProjectMars_Specflow.Pages
 
         public string getLanguage(string language)
         {
-            try
-            {
-                Wait.WaitToExist("XPath", $"//div[@class='twelve wide column scrollTable']//td[text()='{language}']", 6);
-                IWebElement newLanguage = driver.FindElement(By.XPath($"//div[@class='twelve wide column scrollTable']//td[text()='{language}']"));
-                return newLanguage.Text;
-            }
-            catch(NoSuchElementException)
-            {
-                return null;
-            }
+            Thread.Sleep(4000);
+
+            //Wait.WaitToExist("XPath", $"//div[@class='twelve wide column scrollTable']//td[text()='{language}']", 6);
+            IWebElement newLanguage = driver.FindElement(By.XPath($"//div[@class='twelve wide column scrollTable']//td[text()='{language}']"));
+            return newLanguage.Text;
         }
 
         public string getLanguageLevel(string languageLevel)
