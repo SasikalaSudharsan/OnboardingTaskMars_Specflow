@@ -74,5 +74,11 @@ namespace ProjectMars_Specflow.StepDefinitions
             Assert.That(actualMessage == expectedMessage, "Actual message and expected message do not match");
         }
 
+        [When(@"Delete all records in the skill list")]
+        public void WhenDeleteAllRecordsInTheSkillList()
+        {
+            skillsPageObj.Delete_All_Records();
+        }
+
     }
 }
