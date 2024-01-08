@@ -4,8 +4,13 @@ As a user,
 I would like to add, edit and delete skills 
 so that people seeking for skills can look at it	
 
-@tag1
-Scenario Outline: Add skills with valid details
+
+Scenario Outline: 01 - Delete all records in the skill list
+Given User logged into Mars URL successfully
+When User navigate to Skills tab
+And Delete all records in the skill list
+
+Scenario Outline: 02 - Add skills with valid details
 	Given User logged into Mars URL successfully
 	When User navigate to Skills tab
 	When User add '<Skill>' and '<Skill Level>' to the skill list
@@ -13,9 +18,10 @@ Scenario Outline: Add skills with valid details
 
 Examples: 
  | Skill    | Skill Level  |
- | Specflow | Intermediate | 
+ | Specflow | Intermediate |
+ | Selenium | Expert       |
 
- Scenario Outline: Update an existing skill
+ Scenario Outline: 03 - Update an existing skill
  Given User logged into Mars URL successfully
  When User navigate to Skills tab
  When User update an existing '<Existing Skill>' and '<Existing Skill Level>'
@@ -25,7 +31,7 @@ Examples:
 | Existing Skill | Existing Skill Level | New Skill | New Skill Level |
 | Specflow       | Intermediate         | Java      | Expert          |
 
- Scenario Outline: Delete an existing skill
+ Scenario Outline: 04 - Delete an existing skill
  Given User logged into Mars URL successfully
  When User navigate to Skills tab
  And User delete the '<Skill>' of an existing skill
@@ -35,7 +41,7 @@ Examples:
  | Skill  | 
  | Java   |  
 
- Scenario Outline: Add skill with skill textbox as empty
+ Scenario Outline: 05 - Add skill with skill textbox as empty
 Given User logged into Mars URL successfully
 When User navigate to Skills tab
 When User add '<Skill>' and '<Skill Level>' to the skill list
@@ -45,12 +51,12 @@ Examples:
  | Skill | Skill Level | Message                                 |
  |       | Expert      | Please enter skill and experience level |
 
-  Scenario Outline: Add existing skill in skill list
+  Scenario Outline: 06 - Add existing skill in skill list
 Given User logged into Mars URL successfully
 When User navigate to Skills tab
 When User add '<Skill>' and '<Skill Level>' to the skill list
 Then The message '<Message>' should be displayed
 
 Examples: 
- | Skill | Skill Level | Message                                         |
- | Java  | Expert      | This skill is already exist in your skill list. |
+ | Skill     | Skill Level | Message                                         |
+ | Selenium  | Expert      | This skill is already exist in your skill list. |

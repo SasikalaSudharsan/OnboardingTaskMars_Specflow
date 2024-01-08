@@ -108,5 +108,17 @@ namespace ProjectMars_Specflow.Pages
             IWebElement successMessage = driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
             return successMessage.Text;
         }
+
+        public void Delete_All_Records()
+        {
+            Thread.Sleep(8000);
+
+            IReadOnlyCollection<IWebElement> deleteButtons = driver.FindElements(By.XPath("//div[@data-tab='second']//i[@class='remove icon']"));
+            //Delete all records in the list
+            foreach (IWebElement deleteButton in deleteButtons)
+            {
+                deleteButton.Click();
+            }
+        }
     }
 }
