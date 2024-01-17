@@ -92,13 +92,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
-testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
-testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
-testRunner.And("Delete all records in the skill list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.And("Delete all records in the skill list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -115,7 +115,7 @@ testRunner.And("Delete all records in the skill list", ((string)(null)), ((TechT
             argumentsOfScenario.Add("Skill", skill);
             argumentsOfScenario.Add("Skill Level", skillLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("02 - Add skills with valid details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 13
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -125,17 +125,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 14
- testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 15
- testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 16
- testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the skill list", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+     testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 17
- testRunner.Then(string.Format("The \'{0}\' and \'{1}\' added successfully", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+     testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the skill list", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 18
+     testRunner.Then(string.Format("The \'{0}\' and \'{1}\' added successfully", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -153,8 +153,8 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("New Skill", newSkill);
             argumentsOfScenario.Add("New Skill Level", newSkillLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("03 - Update an existing skill", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 24
- this.ScenarioInitialize(scenarioInfo);
+#line 26
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -163,17 +163,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 25
- testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 26
- testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 27
- testRunner.When(string.Format("User update an existing \'{0}\' and \'{1}\'", existingSkill, existingSkillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+        testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 28
- testRunner.Then(string.Format("The \'{0}\' and \'{1}\' updated successfully", newSkill, newSkillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 29
+        testRunner.When(string.Format("User update an existing \'{0}\' and \'{1}\'", existingSkill, existingSkillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 30
+        testRunner.Then(string.Format("The \'{0}\' and \'{1}\' updated successfully", newSkill, newSkillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -188,8 +188,8 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Skill", skill);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("04 - Delete an existing skill", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 34
- this.ScenarioInitialize(scenarioInfo);
+#line 37
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -198,17 +198,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 35
- testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 36
- testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 37
- testRunner.And(string.Format("User delete the \'{0}\' of an existing skill", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
 #line 38
- testRunner.Then(string.Format("The \'{0}\' deleted successfully", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 39
+        testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 40
+        testRunner.And(string.Format("User delete the \'{0}\' of an existing skill", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 41
+        testRunner.Then(string.Format("The \'{0}\' deleted successfully", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -225,8 +225,8 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("Skill Level", skillLevel);
             argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("05 - Add skill with skill textbox as empty", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 44
- this.ScenarioInitialize(scenarioInfo);
+#line 48
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -235,17 +235,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 45
-testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 49
+        testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 46
-testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 50
+        testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 47
-testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the skill list", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 51
+        testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the skill list", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 48
-testRunner.Then(string.Format("The skill message \'{0}\' should be displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 52
+        testRunner.Then(string.Format("The skill message \'{0}\' should be displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -262,8 +262,8 @@ testRunner.Then(string.Format("The skill message \'{0}\' should be displayed", m
             argumentsOfScenario.Add("Skill Level", skillLevel);
             argumentsOfScenario.Add("Message", message);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("06 - Add existing skill in skill list", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 54
-  this.ScenarioInitialize(scenarioInfo);
+#line 59
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -272,17 +272,17 @@ testRunner.Then(string.Format("The skill message \'{0}\' should be displayed", m
             else
             {
                 this.ScenarioStart();
-#line 55
-testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 60
+        testRunner.Given("User logged into Mars URL successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 56
-testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 61
+        testRunner.When("User navigate to Skills tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 57
-testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the skill list", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 62
+        testRunner.When(string.Format("User add \'{0}\' and \'{1}\' to the skill list", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 58
-testRunner.Then(string.Format("The message \'{0}\' should be displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 63
+        testRunner.Then(string.Format("The message \'{0}\' should be displayed", message), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

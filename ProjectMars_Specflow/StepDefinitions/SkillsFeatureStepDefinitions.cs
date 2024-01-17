@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using ProjectMars_Specflow.Pages;
+using ProjectMars_Specflow.Utilities;
 using System;
 using System.Net.NetworkInformation;
 using TechTalk.SpecFlow;
@@ -7,15 +8,27 @@ using TechTalk.SpecFlow;
 namespace ProjectMars_Specflow.StepDefinitions
 {
     [Binding]
-    public class SkillsFeatureStepDefinitions
+    public class SkillsFeatureStepDefinitions : CommonDriver
     {
-        HomePage homePageObj = new HomePage();
-        SkillsPage skillsPageObj = new SkillsPage();
+        HomePage homePageObj;
+        SkillsPage skillsPageObj;
+
+        public SkillsFeatureStepDefinitions()
+        {
+            homePageObj = new HomePage();
+            skillsPageObj = new SkillsPage();
+        }
 
         [When(@"User navigate to Skills tab")]
         public void WhenUserNavigateToSkillsTab()
         {
             homePageObj.GoToSkillsPage();
+        }
+
+        [When(@"Delete all records in the skill list")]
+        public void WhenDeleteAllRecordsInTheSkillList()
+        {
+            skillsPageObj.Delete_All_Records();
         }
 
         [When(@"User add '([^']*)' and '([^']*)' to the skill list")]
@@ -72,12 +85,6 @@ namespace ProjectMars_Specflow.StepDefinitions
             string actualMessage = skillsPageObj.getMessage();
 
             Assert.That(actualMessage == expectedMessage, "Actual message and expected message do not match");
-        }
-
-        [When(@"Delete all records in the skill list")]
-        public void WhenDeleteAllRecordsInTheSkillList()
-        {
-            skillsPageObj.Delete_All_Records();
         }
 
     }
