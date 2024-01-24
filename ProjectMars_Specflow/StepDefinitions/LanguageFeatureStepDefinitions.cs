@@ -10,14 +10,25 @@ namespace ProjectMars_Specflow.StepDefinitions
     [Binding]
     public class LanguageFeatureStepDefinitions : CommonDriver
     {
-        LoginPage loginPageObj = new LoginPage();
-        LanguagePage languagePageObj = new LanguagePage();
+        LoginPage loginPageObj;
+        LanguagePage languagePageObj;
+
+        public LanguageFeatureStepDefinitions()
+        {
+            loginPageObj = new LoginPage();
+            languagePageObj = new LanguagePage();
+        }
 
         [Given(@"User logged into Mars URL successfully")]
         public void GivenUserLoggedIntoMarsURLSuccessfully()
         {
-            //Login page object initialization and definition
             loginPageObj.LoginActions();
+        }
+
+        [When(@"Delete all records in the language list")]
+        public void WhenDeleteAllRecordsInTheLanguageList()
+        {
+            languagePageObj.Delete_All_Records();
         }
 
         [When(@"User add '([^']*)' and '([^']*)' to the language list")]
@@ -74,12 +85,6 @@ namespace ProjectMars_Specflow.StepDefinitions
             string actualMessage = languagePageObj.getMessage();
 
             Assert.That(actualMessage == expectedMessage, "Actual message and expected message do not match");
-        }
-
-        [When(@"Delete all records in the language list")]
-        public void WhenDeleteAllRecordsInTheLanguageList()
-        {
-            languagePageObj.Delete_All_Records();
         }
 
     }

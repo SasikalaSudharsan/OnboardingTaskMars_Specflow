@@ -10,25 +10,22 @@ namespace ProjectMars_Specflow.Pages
 {
     public class LoginPage : CommonDriver
     {
+        private IWebElement SignInButton    => driver.FindElement(By.XPath("//div[@id='home']/div/div/div/div/a"));
+        private IWebElement UsernameTextbox => driver.FindElement(By.XPath("//input[@name='email']"));
+        private IWebElement PasswordTextbox => driver.FindElement(By.XPath("//input[@name='password']"));
+        private IWebElement LoginButton     => driver.FindElement(By.XPath("//button[text()='Login']"));
+
         public void LoginActions()
         {
-
-            IWebElement signInButton = driver.FindElement(By.XPath("//div[@id='home']/div/div/div/div/a"));
-            signInButton.Click();
-
-            //Thread.Sleep(4000);
-
+            //Click SignIn button
+            SignInButton.Click();
             Wait.WaitToExist("XPath", "//input[@name='email']", 4);
-
-            IWebElement usernameTextbox = driver.FindElement(By.XPath("//input[@name='email']"));
-            usernameTextbox.SendKeys("sasi.ei34@gmail.com");
-
-            IWebElement passwordTextbox = driver.FindElement(By.XPath("//input[@name='password']"));
-            passwordTextbox.SendKeys("Selenium@2");
-
-            IWebElement loginButton = driver.FindElement(By.XPath("//button[text()='Login']"));
-            loginButton.Click();
-
+            //Enter username
+            UsernameTextbox.SendKeys("sasi.ei34@gmail.com");
+            //Enter password
+            PasswordTextbox.SendKeys("Selenium@2");
+            //Click login button
+            LoginButton.Click();
         }
     }
 }
